@@ -12,73 +12,77 @@ class MyApp extends StatelessWidget {
         body: Column(
           children: <Widget>[
             Container(
-              width: double.infinity,
-              height: 60,
-              color: Colors.grey[200],
-              child: Column(
-                children: <Widget>[
-                  Text('first line'),
-                  Text('second line'),
-                  Text('third line'),
-                ],
-              ),
+              padding: EdgeInsets.only(top: 32),
+              child: Text('TextButton'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                TextButton(
+                  onPressed: null,
+                  child: Text('disabled'),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text('enabled'),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    primary: Colors.red,
+                  ),
+                  onPressed: () {},
+                  child: Text('enabled'),
+                ),
+              ],
             ),
             Container(
-              width: double.infinity,
-              height: 70,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('***'),
-                  Text('中央寄せ'),
-                ],
-              ),
+              padding: EdgeInsets.only(top: 32),
+              child: Text('OutlinedButton'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                OutlinedButton(
+                  onPressed: null,
+                  child: Text('disabled'),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Text('enabled'),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                    primary: Colors.red,
+                  ),
+                  child: Text('enabled'),
+                ),
+              ],
             ),
             Container(
-              width: double.infinity,
-              height: 60,
-              color: Colors.grey[200],
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text('***'),
-                  Text('下寄せ'),
-                ],
-              ),
+              padding: EdgeInsets.only(top: 32),
+              child: Text('ElevatedButton'),
             ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text('***'),
-                  Text('均等に配置'),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              color: Colors.grey[200],
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text('***'),
-                  Text('左寄せ'),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Text('***'),
-                  Text('右寄せ'),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: null,
+                  child: Text('disabled'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('enabled'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.red,
+                    elevation: 16,
+                  ),
+                  child: Text('enabled'),
+                ),
+              ],
             ),
           ],
         ),
