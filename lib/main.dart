@@ -8,85 +8,47 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(top: 32),
-              child: Text('TextButton'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                TextButton(
-                  onPressed: null,
-                  child: Text('disabled'),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('enabled'),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    primary: Colors.red,
-                  ),
-                  onPressed: () {},
-                  child: Text('enabled'),
-                ),
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 32),
-              child: Text('OutlinedButton'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                OutlinedButton(
-                  onPressed: null,
-                  child: Text('disabled'),
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text('enabled'),
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  style: OutlinedButton.styleFrom(
-                    primary: Colors.red,
-                  ),
-                  child: Text('enabled'),
-                ),
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 32),
-              child: Text('ElevatedButton'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: null,
-                  child: Text('disabled'),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('enabled'),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.red,
-                    elevation: 16,
-                  ),
-                  child: Text('enabled'),
-                ),
-              ],
-            ),
-          ],
+        body: Center(
+          child: MyWidget(),
         ),
       ),
+    );
+  }
+}
+
+// StatefulWidgetを継承するとStateを扱える
+// このWidgetを表示すると、Stateを元にUIが作成される
+class MyWidget extends StatefulWidget {
+  // 使用するStateを指定
+  @override
+  _MyWidgetState createState() => _MyWidgetState();
+}
+
+// Stateを継承して使う
+class _MyWidgetState extends State<MyWidget> {
+  // データを宣言
+  int count = 0;
+
+  // データを元にWidgetを作る
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(count.toString()),
+        TextButton(
+          onPressed: () {
+            // データを更新する時は setState を呼ぶ
+            setState(() {
+              // データを更新
+              count = count + 1;
+            });
+          },
+          child: Text('カウントアップ'),
+        ),
+      ],
     );
   }
 }
